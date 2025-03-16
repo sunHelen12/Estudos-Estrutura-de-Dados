@@ -1,4 +1,4 @@
-package Pilhas_Estaticas.Codigo_Aula_1;
+package Pilhas_Estaticas.Pilha_Estatica;
 
 public class PilhaEstatica implements Empilhavel {
     private int indice;
