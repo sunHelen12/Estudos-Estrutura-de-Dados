@@ -1,18 +1,10 @@
-## Getting Started
+# 🚀 Estruturas de Dados - Estudos e Implementações
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Bem-vindo(a) ao meu repositório de estudos sobre **Estruturas de Dados**! 📚  
+Aqui, você encontrará implementações e explicações sobre diversas estruturas essenciais para a programação e a computação, com foco na disciplina do curso de **Sistemas de Informação**.
 
-## Folder Structure
 
-The workspace contains two folders by default, where:
+## 📌 Objetivo
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+Este repositório foi criado para armazenar e compartilhar **implementações práticas** das principais estruturas de dados, auxiliando no aprendizado e aprofundamento da matéria. Cada estrutura de dados será acompanhada de exemplos em código.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
