@@ -1,6 +1,5 @@
 package Pilhas_Estaticas.Pilha_Estatica_Invertida;
 
-
 public class PilhaEstaticaInvertidaMain {
     public static void main(String[] args) {
         //instacia
