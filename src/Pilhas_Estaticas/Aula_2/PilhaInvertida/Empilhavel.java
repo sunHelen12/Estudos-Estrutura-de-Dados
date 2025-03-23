@@ -1,4 +1,4 @@
-package Pilhas_Estaticas.Aula_2.PilhaEstatica;
+package Pilhas_Estaticas.Aula_2.PilhaInvertida;
 
 public interface Empilhavel {
     void empilhar(Object elemento); //empilhar elementos

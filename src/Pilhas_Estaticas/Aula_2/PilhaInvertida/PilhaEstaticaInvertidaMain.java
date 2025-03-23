@@ -1,7 +1,4 @@
 package Pilhas_Estaticas.Aula_2.PilhaInvertida;
-
-import Pilhas_Estaticas.Aula_2.PilhaEstatica.Empilhavel;
-
 public class PilhaEstaticaInvertidaMain {
     public static void main(String[] args) {
          //instaciar
