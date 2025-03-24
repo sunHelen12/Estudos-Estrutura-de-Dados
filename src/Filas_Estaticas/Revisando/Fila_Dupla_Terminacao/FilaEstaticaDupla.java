@@ -20,10 +20,12 @@ public class FilaEstaticaDupla implements DuplamenteEnfileiravel {
     @Override
     public void enfileirarInicio(Object elemento) {
         if(!estaCheia()){
+            //patch fila circular
             if(ponteiroInicio == -1){
                 ponteiroInicio = dados.length - 1;
             }
             quantidade++;
+            //fim do patch
             dados[ponteiroInicio] = elemento;
             ponteiroInicio--;
         }else{
@@ -34,10 +36,12 @@ public class FilaEstaticaDupla implements DuplamenteEnfileiravel {
     @Override
     public void enfileirarFim(Object elemento) {
         if(!estaCheia()){
+            //patch fila circular
             if(ponteiroFim == dados.length - 1){
                 ponteiroFim = -1;
             }
             quantidade++;
+            //fim do patch
             ponteiroFim++;
             dados[ponteiroFim] = elemento;
         }else{
@@ -49,10 +53,12 @@ public class FilaEstaticaDupla implements DuplamenteEnfileiravel {
     public Object desenfileirarInicio() {
         Object elementoDesenfileirado = null;
         if(!estaVazia()){
+            //patch fila circular
             if(ponteiroInicio == dados.length - 1){
                 ponteiroInicio = -1;
             }
             quantidade--;
+            //fim do patch
             ponteiroInicio++;
             elementoDesenfileirado = dados[ponteiroInicio];
         }else{
@@ -67,11 +73,12 @@ public class FilaEstaticaDupla implements DuplamenteEnfileiravel {
         if(!estaVazia()){
             elementoDesenfileirado = dados[ponteiroFim];
             ponteiroFim--;
-
+            //patch fila circular
             if(ponteiroFim == -1){
                 ponteiroInicio = dados.length - 1; //impede que o ponteiroInicio fique com valor negativo e ocorra exceção
             }
             quantidade--;
+            //fim do patch
         }else{
             System.err.println("Fila Vazia!");
         }
