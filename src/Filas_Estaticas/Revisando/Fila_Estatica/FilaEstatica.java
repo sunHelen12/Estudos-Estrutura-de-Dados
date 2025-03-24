@@ -1,8 +1,7 @@
 package Filas_Estaticas.Revisando.Fila_Estatica;
 
 public class FilaEstatica  implements Enfileiravel{
-    private int ponteiroInicio;
-    private int ponteiroFim;
+    private int ponteiroInicio, ponteiroFim;    
     private Object[] dados;
 
     public FilaEstatica(int tamanho){
