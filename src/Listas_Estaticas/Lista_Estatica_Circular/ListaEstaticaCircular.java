@@ -72,6 +72,52 @@ public class ListaEstaticaCircular implements Listavel {
         //verificar se a posição está dentro do limite do vetor
             if(posicao>= 0 && posicao < quantidade){
                 int pontoManipulacao = (ponteiroInicio + posicao) % elementos.length; //calcular a posição do elemento que será selecionado 
+                elementoSelecionado = elementos[pontoManipulacao]; //adicionamos o elemento da posicao ao elementoSelecionado                    
+            }else{
+                System.err.println("Posição inválida");
+            }
+        } else {
+            System.err.println("Lista vazia");
+        }
+       return elementoSelecionado;
+    }
+
+    @Override
+    public Object[] selecionarTodos() {
+        Object[] elementoSelecionado = null;
+        if(!estaVazia()){
+            elementoSelecionado = new Object[quantidade];
+            for(int i = 0, ponteiroAux = ponteiroInicio; i < quantidade; i++, ponteiroAux++){
+                if(ponteiroAux == elementos.length){
+                    ponteiroAux = 0; //se o ponteiroAux chegar no final do vetor, ele volta para o início
+                }
+                elementoSelecionado[i] = elementos[ponteiroAux]; //adicionamos o elemento da posicao ao elementoSelecionado
+            }
+        }
+        return elementoSelecionado;
+    }
+
+    @Override
+    public void atualizar(int posicao, Object novoElemento) {
+        if(!estaVazia()){
+            if(posicao >= 0 && posicao < quantidade){
+                int pontoManipulacao = (ponteiroInicio + posicao) % elementos.length; //calcular a posição do elemento que será selecionado
+                elementos[pontoManipulacao] = novoElemento; //adicionamos o elemento da posicao ao elementoSelecionado
+            } else {
+                System.err.println("Posição inválida");
+            }
+        } else {
+            System.err.println("Lista vazia");
+        }
+    }
+
+    @Override
+    public Object remover(int posicao) {
+        Object elementoSelecionado = null;
+        if(!estaVazia()){
+            //verificar se a posição está dentro do limite do vetor
+            if(posicao>= 0 && posicao < quantidade){
+                int pontoManipulacao = (ponteiroInicio + posicao) % elementos.length; //calcular a posição do elemento que será selecionado 
                 elementoSelecionado = elementos[pontoManipulacao]; //adicionamos o elemento da posicao ao elementoSelecionado
                 for (int i = pontoManipulacao; i != ponteiroFim; i++){
                     int atual = i;
@@ -93,50 +139,7 @@ public class ListaEstaticaCircular implements Listavel {
         } else {
             System.err.println("Lista vazia");
         }
-       return elementoSelecionado;
-    }
-
-    @Override
-    public Object[] selecionarTodos() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'selecionarTodos'");
-    }
-
-    @Override
-    public void atualizar(int posicao, Object novoElemento) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'atualizar'");
-    }
-
-    @Override
-    public Object remover(int posicao) {
-    Object elementoSelecionado = null;
-    if(!estaVazia()){
-         //verificar se a posição está dentro do limite do vetor
-         if(posicao>= 0 && posicao < quantidade){
-            int pontoManipulacao = (ponteiroInicio + posicao) % elementos.length; //calcular a posição do elemento que será selecionado 
-            elementoSelecionado = elementos[pontoManipulacao]; //adicionamos o elemento da posicao ao elementoSelecionado
-            for (int i = pontoManipulacao; i != ponteiroFim; i++){
-                int atual = i;
-                if (i == elementos.length - 1){
-                    i = -1; //se o i chegar no final do vetor, ele volta para o início
-                }
-                int proximo = i + 1;
-                elementos[atual] = elementos[proximo]; //deslocar os elementos para a esquerda
-            } 
-            ponteiroFim--; //ponteiroFim avança para a próxima posição para não sobrescrever o elemento atual
-            if(ponteiroFim == -1){
-                ponteiroFim = elementos.length - 1; //se o ponteiroFim chegar no final do vetor, ele volta para o início
-            }
-            quantidade--; //diminuimos a quantidade de  inserções
-                
-        }else{
-            System.err.println("Posição inválida");
-        }
-    } else {
-        System.err.println("Lista vazia");
-    }
-   return elementoSelecionado;
+        return elementoSelecionado;
     }
 
     @Override
