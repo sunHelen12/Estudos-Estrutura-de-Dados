@@ -16,7 +16,8 @@ public class ListaEstaticaCircularMain {
         System.out.println("Lista após atualização: " + lista.imprimir());
 
         Object conteudo = lista.selecionarTodos();
-        System.out.println("Conteúdo da lista: " + conteudo);
+        System.out.println("Conteúdo da lista: " + java.util.Arrays.toString((Object[]) conteudo));
+        
 
     }
 }
