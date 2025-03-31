@@ -1,4 +1,4 @@
-package Listas_Estaticas.Lista_Estatica_Circular;
+package Listas_Estaticas.Lista_Estatica_Circular.Aula_3.Revisando;
 
 public class ListaEstaticaCircularMain {
     public static void main(String[] args) {
