@@ -157,7 +157,7 @@ public class ListaEstaticaCircular implements Listavel {
         //Mesma configuração da fila circular
         String resultado = "[";
         for (int i = 0, ponteiroAux = ponteiroInicio; i < quantidade; i++, ponteiroAux++){
-            if(quantidade == - 1){
+            if(i == quantidade - 1){
                 resultado += elementos[ponteiroAux % elementos.length];
             } else {
                 resultado += elementos[ponteiroAux % elementos.length] + ", ";

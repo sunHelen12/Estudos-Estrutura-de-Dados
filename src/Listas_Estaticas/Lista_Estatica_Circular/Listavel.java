@@ -4,7 +4,7 @@ public interface Listavel {
     void anexar(Object elemento); //vou anexar o elemento no final da lista
     void inserir(Object elemento, int posicao); // o usuário vai informar a posição que ele quer inserir o elemento
     Object selecionar(int posicao); // o usuário vai informar a posição que ele quer selecionar o elemento
-    Object[] selecionarTodos(); // o usuário vai informar a posição que ele quer selecionar o elemento para retornar todos os elementos
+    Object[] selecionarTodos(); //selecionar o elemento para retornar 
     void atualizar(int posicao, Object novoElemento); // o usuário vai informar a posição que ele quer atualizar com um novo elemento
     Object remover (int posicao); // o usuário vai informar a posição que ele quer remover o elemento
 
