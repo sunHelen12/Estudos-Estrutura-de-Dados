@@ -20,8 +20,8 @@ public class FilaEstaticaCircular implements Enfileiravel {
     @Override
     public void enfileirar(Object elemento) {
         if (!estaCheia()) {
-            ponteiroFim = (ponteiroFim + 1) % elementos.length;
-            elementos[ponteiroFim] = elemento;
+            ponteiroFim = avancar(ponteiroFim); //para ela não chegar ao número inválido do tamanho
+            elementos[ponteiroFim] = elemento;            
             quantidade++;
         } else {
             System.out.println("Fila cheia");
@@ -33,7 +33,7 @@ public class FilaEstaticaCircular implements Enfileiravel {
         Object elementoRemovido = null;
         if (!estaVazia()) {
             elementoRemovido = elementos[ponteiroInicio];
-            ponteiroInicio = (ponteiroInicio + 1) % elementos.length;
+            ponteiroInicio = avancar(ponteiroInicio);
             quantidade--;
         } else {
             System.out.println("Fila vazia");
@@ -84,18 +84,21 @@ public class FilaEstaticaCircular implements Enfileiravel {
     @Override
     public String imprimir() {
         String resultado = "[";
-        for (int i = ponteiroInicio; i < quantidade + ponteiroInicio; i++) {
+        int ponteiroAux = ponteiroInicio;
+        for (int i = 0; i < quantidade; i++) {
             // patch fila circular
-            if (i == elementos.length) {
-                i = 0; 
+            if (i == quantidade - 1) {
+                resultado += elementos[ponteiroAux];
+            }else{
+                resultado += elementos[ponteiroAux] + ", ";
             }
-            // fim do patch
-            if (i == quantidade + ponteiroInicio - 1) {
-                resultado += elementos[i % elementos.length];
-            } else {
-                resultado += elementos[i % elementos.length] + ", ";
-            }            
+            
+            ponteiroAux = avancar(ponteiroAux);                     
         }
         return resultado + "]";
+    }
+
+    private int avancar(int ponteiro){
+        return ((ponteiro + 1) % elementos.length);
     }
 }
