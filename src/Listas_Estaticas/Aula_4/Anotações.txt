@@ -1,0 +1,6 @@
+LISTAS ESTÁTICAS
+
+Toda Pilha é uma Lista, mas nem toda lista é pilha;
+Toda Fila é uma lista, mas nem toda lista é fila;
+
+POSICAO_FISICA mapeamento (POSICAO_LOGICA);

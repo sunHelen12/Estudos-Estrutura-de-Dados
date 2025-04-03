@@ -86,7 +86,7 @@ public class FilaEstaticaDupla implements DuplamenteEnfileiravel {
     }
 
     @Override
-    public Object espiarInicio() {
+    public Object frente() {
         Object elementoInicio = null;
         if (!estaVazia()){
             elementoInicio = dados[ponteiroInicio];
@@ -97,7 +97,7 @@ public class FilaEstaticaDupla implements DuplamenteEnfileiravel {
     }
 
     @Override
-    public Object espiarFim() {
+    public Object tras() {
         Object elementoFim = null;
         if (!estaVazia()){
             elementoFim = dados[ponteiroFim];
@@ -135,6 +135,14 @@ public class FilaEstaticaDupla implements DuplamenteEnfileiravel {
             i++;
         }        
         return resultado + "]";
+    }
+
+    private int avancar (int ponteiro){
+        return  (ponteiro + 1) % dados.length;
+    }
+
+    private int retroceder (int ponteiro){
+        return (ponteiro - 1) + dados.length % dados.length; 
     }
     
 }
