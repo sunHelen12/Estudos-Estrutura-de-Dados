@@ -84,15 +84,15 @@ public class ListaEstaticaCircular implements Listavel {
 
     @Override
     public Object[] selecionarTodos() {
-        Object[] elementoSelecionado = null;
+        Object[] elementoSelecionado = new Object[quantidade];
         if(!estaVazia()){
-            elementoSelecionado = new Object[quantidade];
-            for(int i = 0, ponteiroAux = ponteiroInicio; i < quantidade; i++, ponteiroAux++){
-                if(ponteiroAux == elementos.length){
-                    ponteiroAux = 0; //se o ponteiroAux chegar no final do vetor, ele volta para o início
-                }
-                elementoSelecionado[i] = elementos[ponteiroAux]; //adicionamos o elemento da posicao ao elementoSelecionado
-            }
+            int recebePosicaoFisica = ponteiroInicio;            
+            for(int i = 0; i < quantidade; i++){
+                elementoSelecionado[i] = elementos[recebePosicaoFisica % elementos.length];
+            } 
+            recebePosicaoFisica++;   
+        }else{
+            System.err.println("Lista vazia!");
         }
         return elementoSelecionado;
     }

@@ -4,3 +4,9 @@ Toda Pilha é uma Lista, mas nem toda lista é pilha;
 Toda Fila é uma lista, mas nem toda lista é fila;
 
 POSICAO_FISICA mapeamento (POSICAO_LOGICA);
+
+L F
+  0
+0 1
+1 2 anexar("Azul")
+  3 anexar("Amarela")
