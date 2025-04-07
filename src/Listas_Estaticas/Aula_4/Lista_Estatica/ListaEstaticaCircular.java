@@ -36,13 +36,15 @@ public class ListaEstaticaCircular  implements  Listavel{
 
     @Override
     public Object selecionar(int indice) {
+        Object selecionado = null;
         if(!estaCheia()){
             //verificar se a posição é válida
             if(indice >= 0 && indice < quantidade){
-               int  posicaoFisica = mapeamento(indice);
-               
+               int  posicaoFisica = mapeamento(indice);      
+               selecionado = elementos[posicaoFisica];          
             }
         }
+        return selecionado;
     }
 
     @Override
