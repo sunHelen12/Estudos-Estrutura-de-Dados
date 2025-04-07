@@ -36,8 +36,13 @@ public class ListaEstaticaCircular  implements  Listavel{
 
     @Override
     public Object selecionar(int indice) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'selecionar'");
+        if(!estaCheia()){
+            //verificar se a posição é válida
+            if(indice >= 0 && indice < quantidade){
+               int  posicaoFisica = mapeamento(indice);
+               
+            }
+        }
     }
 
     @Override
