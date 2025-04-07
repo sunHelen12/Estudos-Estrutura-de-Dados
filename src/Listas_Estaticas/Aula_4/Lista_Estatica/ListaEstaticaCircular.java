@@ -43,14 +43,19 @@ public class ListaEstaticaCircular  implements  Listavel{
                int  posicaoFisica = mapeamento(indice);      
                selecionado = elementos[posicaoFisica];          
             }
+        }else{
+            System.err.println("Lista está Cheia!");
         }
         return selecionado;
     }
 
     @Override
     public Object[] selecionarTodos() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'selecionarTodos'");
+        Object[] todosSelecionados = null;
+        if(!estaVazia()){
+            todosSelecionados = new Object[quantidade];
+            for(int i = 0 )
+        }
     }
 
     @Override
