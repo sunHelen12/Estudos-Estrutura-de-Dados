@@ -27,10 +27,16 @@ public class ListaEstaticaCircular  implements  Listavel{
             int y = avancar(x);
             int posicaoFisica = mapeamento(indice);
             for (int i = 0; i < quantidade - indice; i++){
+                elementos[x] = elementos[y];
                 x = retroceder(x);
                 y = retroceder(y);
             }
+            elementos[posicaoFisica] = elemento;
+            quantidade++;
+            avancar(ponteiroFim);
          }
+       }else{
+            System.err.println("Lista Vazia!");
        }
     }
 
