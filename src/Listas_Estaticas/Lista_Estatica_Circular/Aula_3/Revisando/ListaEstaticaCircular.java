@@ -88,9 +88,8 @@ public class ListaEstaticaCircular implements Listavel {
         if(!estaVazia()){
             int recebePosicaoFisica = ponteiroInicio;            
             for(int i = 0; i < quantidade; i++){
-                elementoSelecionado[i] = elementos[recebePosicaoFisica % elementos.length];
+                elementoSelecionado[i] = elementos[recebePosicaoFisica + i % elementos.length];                 
             } 
-            recebePosicaoFisica++;   
         }else{
             System.err.println("Lista vazia!");
         }

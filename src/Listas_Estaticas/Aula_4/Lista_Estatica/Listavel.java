@@ -10,7 +10,7 @@ public interface Listavel {
     boolean contem(Object elemento);                  //S sort
     void limpar();                                    //D
     //Extra
-    // int primeiraOcorrencia(Object elemento);
+    int primeiraOcorrencia(Object elemento);
     // int ultimaOcorrencia(Object elemento);
 
     boolean estaCheia();

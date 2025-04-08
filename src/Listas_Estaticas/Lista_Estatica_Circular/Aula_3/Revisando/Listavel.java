@@ -7,7 +7,8 @@ public interface Listavel {
     Object[] selecionarTodos(); //selecionar o elemento para retornar 
     void atualizar(int posicao, Object novoElemento); // o usuário vai informar a posição que ele quer atualizar com um novo elemento
     Object remover (int posicao); // o usuário vai informar a posição que ele quer remover o elemento
-
+    int primeiraOcorrencia(int posicao);
+    
     //métodos auxiliares
     boolean estaCheia(); // verificar se a lista está cheia
     boolean estaVazia(); // verificar se a lista está vazia 
