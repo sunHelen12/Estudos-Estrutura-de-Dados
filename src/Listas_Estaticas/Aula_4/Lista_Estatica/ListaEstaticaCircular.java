@@ -131,12 +131,13 @@ public class ListaEstaticaCircular  implements  Listavel{
             for(int i = 0; i < quantidade; i++){
                 if(elementos[recebePosicaoFisica]  == elemento){
                     recebePosicaoFisica = avancar(recebePosicaoFisica); 
-                    aux = recebePosicaoFisica
+                    aux = recebePosicaoFisica;
                 }
             }
         }else{
             System.err.println("Lista Vazia!");
         }
+        return aux;
     }
 
     @Override
