@@ -14,7 +14,7 @@ public class PilhaDinamica<T> implements Empilhavel<T> {
     }
 
     public PilhaDinamica() {
-        this.(10);
+        this(10);
     }
 
     @Override
@@ -22,7 +22,7 @@ public class PilhaDinamica<T> implements Empilhavel<T> {
         if (estaCheia()) {
               throw new NoSuchElementException("Pilha Cheia!");
         }
-        NodoDuplo<T> novoDado = new NodoDuplo<T>(dado);
+        NodoDuplo<T> novoDado = new NodoDuplo<>(dado);
         novoDado.setAnterior(ponteiroTopo);
 
         if (!estaVazia()) {
