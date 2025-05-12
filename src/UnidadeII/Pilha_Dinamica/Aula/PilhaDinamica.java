@@ -6,15 +6,15 @@ public class PilhaDinamica<T> implements Empilhavel<T> {
     private NodoDuplo<T> ponteiroTopo;
     private int quantidade;
     private int tamanho;
-
-    public PilhaDinamica() {
-        this.(10);
-    }
-
+    
     public PilhaDinamica(int tamanho) {
         quantidade = 0;
         ponteiroTopo = null;
         this.tamanho = tamanho;
+    }
+
+    public PilhaDinamica() {
+        this.(10);
     }
 
     @Override
