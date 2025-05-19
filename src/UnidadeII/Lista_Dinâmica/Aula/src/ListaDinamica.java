@@ -1,0 +1,4 @@
+
+public ListaDinamica <T> {
+
+}
