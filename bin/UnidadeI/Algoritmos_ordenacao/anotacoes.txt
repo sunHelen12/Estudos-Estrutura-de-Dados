@@ -1,8 +1,0 @@
-Algoritmos de Ordenação
-Listas Ordenadas
-Busca de Dados
-
-Bubble Sort
-Selection Sort
-Insertion Sort
-

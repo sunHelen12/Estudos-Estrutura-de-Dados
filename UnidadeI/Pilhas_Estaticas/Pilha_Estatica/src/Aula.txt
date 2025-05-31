@@ -1,0 +1,22 @@
+Pilha/Stack
+Empilhavel/Stackble
+
+Interface define comportamento
+Conjunto de operações que algo (classe) deve provê
+
+Tipo de retorno
+
+topo = espiar
+
+Usamos Object para coisas gerais, mas podemos usar String para músicas, por exemplo.
+
+Construtor = inicializar variáveis de instância
+
+Não usamos o foreach porque ele passa por casas vazias.
+
+Interface na instanciação:
+| Porque podemos chamar os métodos da Interface que estão implementados na classe de forma mais fácil.
+| Atenção ao instaciar com a interface nós só podemos chamar os métodos da interface.
+
+PilhaEstatica p1 = new PilhaEstatica(30);
+-> Empilhavel p2 = new PilhaEstatica(30);
