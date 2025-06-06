@@ -4,7 +4,7 @@
   * Cada nó armazena um dado genérico e referências para o nó anterior e o próximo.
   *
   * @param <T> Tipo dos dados armazenados no nó.
-  * @author H.S.Rocha
+  * @author Rocha, H.S.
   * @version 1.0
   * @since 2025-05-01
   */

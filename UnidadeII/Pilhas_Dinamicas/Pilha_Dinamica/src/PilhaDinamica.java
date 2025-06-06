@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
 * além de verificar se a pilha está cheia ou vazia.
 *
 * @param <T> Tipo dos elementos armazenados na pilha.
-* @author H.S.Rocha
+* @author Rocha, H.S.
 * @version 1.0
 * @since 2025-05-01
 */

@@ -2,7 +2,7 @@
  * Esta interface indica as operações que uma classe que deseja ter o comportamento
  * de ser Empilhável precisa.
  *
- * @author Oliveira, C.R.S.
+ * @author Rocha, H.S.
  * @version 1.1
  * @since 2025-05-01
  */
