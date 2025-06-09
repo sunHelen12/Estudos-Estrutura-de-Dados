@@ -3,7 +3,7 @@
  * de ser Empilhável precisa.
  *
  * @author Rocha, H.S.
- * @version 1.1
+ * @version 1.0
  * @since 2025-05-01
  */
 
