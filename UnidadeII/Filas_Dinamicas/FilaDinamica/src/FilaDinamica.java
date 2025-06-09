@@ -29,12 +29,18 @@ public class FilaDinamica <T> implements Enfileiravel<T> {
 
     @Override
     public T frente() {
-        return null;
+        if (!estaVazia()){
+            throw new NoSuchElementException("Fila Vazia");
+        }
+        return ponteiroInicio.getDado();
     }
 
     @Override
     public T tras() {
-        return null;
+        if (!estaVazia()){
+            throw new NoSuchElementException("Fila Vazia");
+        }
+        return ponteiroFim.getDado();
     }
 
     @Override
