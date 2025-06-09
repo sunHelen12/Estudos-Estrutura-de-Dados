@@ -1,3 +1,5 @@
+import exception.OverFlowException;
+
 import java.util.NoSuchElementException;
 
 /**
@@ -43,7 +45,7 @@ public class PilhaDinamica<T> implements Empilhavel<T> {
     @Override
     public void empilhar(T dado) {
         if (estaCheia()) {
-            throw new NoSuchElementException("Pilha Cheia!");
+            throw new OverFlowException("Pilha Cheia!");
         }
         NodoDuplo<T> novoDado = new NodoDuplo<>(dado);
         novoDado.setAnterior(ponteiroTopo);
