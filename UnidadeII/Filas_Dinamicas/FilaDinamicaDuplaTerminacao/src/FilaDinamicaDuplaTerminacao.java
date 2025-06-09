@@ -1,30 +1,56 @@
+import exception.OverFlowException;
+
 import java.util.NoSuchElementException;
 
-public class FilaDinamica <T> implements Enfileiravel<T> {
+public class FilaDinamicaDuplaTerminacao<T> implements Enfileiravel<T> {
     private NodoDuplo <T> ponteiroInicio = null;
     private NodoDuplo <T> ponteiroFim= null;
     private int quantidade;
     private int tamanho;
 
-    public FilaDinamica(int tamanho) {
+    public FilaDinamicaDuplaTerminacao(int tamanho) {
         this.quantidade = 0;
         this.ponteiroInicio = ponteiroInicio;
         this.ponteiroFim = ponteiroFim;
         this.tamanho = tamanho;
     }
 
-    public FilaDinamica() {
+    public FilaDinamicaDuplaTerminacao() {
         this(10);
     }
 
     @Override
     public void enfileirarInicio(T dado) {
-        
+        if (estaCheia()){
+            throw new OverFlowException("Fila Cheia");
+        }
+        // Criamos um nó temporário e já setamos o novo dado para ele
+        NodoDuplo<T> nodoTemporario = new NodoDuplo<>(dado);
+        if (!estaVazia()) {
+            nodoTemporario.setProximo(ponteiroInicio); // O novoDado será o próximo ao ponteiroInicio
+            ponteiroInicio.setAnterior(nodoTemporario); // O Anterior de ponteiroInicio será o novoDado
+        }else {
+            ponteiroFim = nodoTemporario; // O ponteiroInicio sai de null e avança para o novoDado adicionado
+        }
+        ponteiroInicio = nodoTemporario; // Agora movemos o ponteiroInicio para o novoDado
+        quantidade++;
     }
 
     @Override
     public void enfileirarFim(T dado) {
-
+        if (estaCheia()){
+            throw new OverFlowException("Fila Cheia");
+        }
+        // Criamos um nó temporário e já setamos o novo dado para ele
+        NodoDuplo<T> nodoTemporario = new NodoDuplo<>(dado);
+        if (!estaVazia()) {
+            ponteiroFim.setProximo(nodoTemporario); // O próximo de ponteiroFim será o novoDado
+            nodoTemporario.setAnterior(ponteiroFim); // O anterior do novoDado será apontado para o ponteiroFim
+        }else {
+            ponteiroInicio = nodoTemporario; // O ponteiroInicio sai de null e avança para o novoDado adicionado
+        }
+        ponteiroFim = nodoTemporario; // Agora movemos o ponteiroFim para o novoDado
+        quantidade++;
     }
 
     @Override
