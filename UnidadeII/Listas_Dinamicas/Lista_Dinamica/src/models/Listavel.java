@@ -1,3 +1,5 @@
+package models;
+
 /**
  * Interface que define as operações básicas para uma lista dinâmica genérica.
  *

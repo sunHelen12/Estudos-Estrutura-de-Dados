@@ -1,4 +1,7 @@
-import java.util.NoSuchElementException;
+package models;
+
+import exception.OverFlowException;
+import exception.UnderFlowException;
 
 /**
  * Classe que representa uma Lista Dinâmica utilizando encadeamento duplo (lista duplamente ligada).
@@ -6,7 +9,7 @@ import java.util.NoSuchElementException;
  * seleção de elementos por um array.
  *
  * @author Rocha, H.S.
- * @date 2023-06-14
+ * @since 2023-06-14
  * @version 1.0
  *
  * @param <T> Tipo de dado armazenado na lista.
@@ -41,21 +44,22 @@ public class ListaDinamica<T> implements Listavel<T> {
      * Adiciona um novo elemento ao final da lista.
      *
      * @param dado Elemento a ser adicionado.
-     * @throws NoSuchElementException Caso a lista esteja cheia.
+     * @throws OverFlowException Caso a lista esteja cheia.
      */
     @Override
     public void anexar(T dado) {
         if (estaCheia()) {
-            throw new NoSuchElementException("Lista Cheia!");
+            throw new OverFlowException("Lista Cheia!");
         }
-        NodoDuplo<T> nodoTemporario = new NodoDuplo<>(dado);
-        nodoTemporario.setAnterior(ponteiroFim);
+        NodoDuplo<T> noTemporario = new NodoDuplo<>(dado);
+
         if (!estaVazia()) {
-            ponteiroFim.setProximo(nodoTemporario);
+            ponteiroFim.setProximo(noTemporario);
+            noTemporario.setAnterior(ponteiroFim);
         } else {
-            ponteiroInicio = nodoTemporario; // Primeiro elemento da lista
+            ponteiroInicio = noTemporario;
         }
-        ponteiroFim = nodoTemporario;
+        ponteiroFim = noTemporario;
         quantidade++;
     }
 
@@ -64,28 +68,43 @@ public class ListaDinamica<T> implements Listavel<T> {
      *
      * @param posicao Posição onde o novo elemento será inserido (começando de 0).
      * @param dado    Elemento a ser inserido.
-     * @throws NoSuchElementException  Se a lista estiver vazia.
+     * @throws OverFlowException  Se a lista estiver cheia.
      * @throws IndexOutOfBoundsException Se a posição for inválida.
      */
     @Override
     public void inserir(int posicao, T dado) {
-        if (estaVazia()) {
-            throw new NoSuchElementException("Lista Vazia!");
+        if (estaCheia()) {
+            throw new OverFlowException("Lista Cheia!");
         }
-        if (posicao < 0 || posicao >= quantidade) {
-            throw new IndexOutOfBoundsException("Índice fora dos Limites");
+        if (!(posicao >= 0 && posicao <= quantidade)) {
+            throw new IndexOutOfBoundsException("Indice Invalido!");
         }
+        NodoDuplo<T> noTemporario = new NodoDuplo<>(dado);
 
-        NodoDuplo<T> ponteiroAux = ponteiroInicio;
+        NodoDuplo<T> ponteiroAnterior = null;
+        NodoDuplo<T> ponteiroProximo = ponteiroInicio;
+
         for (int i = 0; i < posicao; i++) {
-            ponteiroAux = ponteiroAux.getProximo();
+            ponteiroAnterior = ponteiroProximo;
+            ponteiroProximo = ponteiroProximo.getProximo();
         }
 
-        NodoDuplo<T> nodoTemporario = new NodoDuplo<>(dado);
-        nodoTemporario.setProximo(ponteiroAux);
-        nodoTemporario.setAnterior(ponteiroAux.getAnterior());
-        ponteiroAux.setAnterior(nodoTemporario);
-        ponteiroAux.getProximo().setProximo(nodoTemporario);
+        if (ponteiroAnterior != null) {
+            ponteiroAnterior.setProximo(noTemporario);
+            // se o anterior é nulo é pq a insercao está sendo no inicio
+        } else {
+            ponteiroInicio = noTemporario;
+        }
+
+        if (ponteiroProximo != null) {
+            ponteiroProximo.setAnterior(noTemporario);
+            // se o proximo é nulo é pq a insercao está sendo no fim (append)
+        } else {
+            ponteiroFim = noTemporario;
+        }
+
+        noTemporario.setAnterior(ponteiroAnterior);
+        noTemporario.setProximo(ponteiroProximo);
 
         quantidade++;
     }
@@ -95,13 +114,13 @@ public class ListaDinamica<T> implements Listavel<T> {
      *
      * @param posicao Posição do elemento desejado (começando de 0).
      * @return O elemento na posição especificada.
-     * @throws NoSuchElementException  Se a lista estiver vazia.
+     * @throws UnderFlowException  Se a lista estiver vazia.
      * @throws IndexOutOfBoundsException Se a posição for inválida.
      */
     @Override
     public T selecionar(int posicao) {
         if (estaVazia()) {
-            throw new NoSuchElementException("Lista Vazia!");
+            throw new UnderFlowException("Lista Vazia!");
         }
         if (posicao < 0 || posicao >= quantidade) {
             throw new IndexOutOfBoundsException("Índice fora dos Limites");
@@ -118,12 +137,12 @@ public class ListaDinamica<T> implements Listavel<T> {
      * Retorna todos os elementos da lista em forma de array.
      *
      * @return Array contendo todos os elementos da lista.
-     * @throws NoSuchElementException Se a lista estiver vazia.
+     * @throws UnderFlowException Se a lista estiver vazia.
      */
     @Override
     public T[] selecionarTodos() {
         if (estaVazia()) {
-            throw new NoSuchElementException("Lista Vazia!");
+            throw new UnderFlowException("Lista Vazia!");
         }
 
         T[] dados = (T[]) new Object[quantidade];
@@ -141,13 +160,13 @@ public class ListaDinamica<T> implements Listavel<T> {
      *
      * @param posicao  Posição do elemento a ser atualizado (começando de 0).
      * @param novoDado Novo valor para o elemento.
-     * @throws NoSuchElementException  Se a lista estiver vazia.
+     * @throws UnderFlowException  Se a lista estiver vazia.
      * @throws IndexOutOfBoundsException Se a posição for inválida.
      */
     @Override
     public void atualizar(int posicao, T novoDado) {
         if (estaVazia()) {
-            throw new NoSuchElementException("Lista Vazia!");
+            throw new UnderFlowException("Lista Vazia!");
         }
         if (posicao < 0 || posicao >= quantidade) {
             throw new IndexOutOfBoundsException("Índice fora dos Limites");
@@ -165,13 +184,13 @@ public class ListaDinamica<T> implements Listavel<T> {
      *
      * @param posicao Posição do elemento a ser removido (começando de 0).
      * @return O elemento que foi removido.
-     * @throws NoSuchElementException  Se a lista estiver vazia.
+     * @throws UnderFlowException  Se a lista estiver vazia.
      * @throws IndexOutOfBoundsException Se a posição for inválida.
      */
     @Override
     public T apagar(int posicao) {
         if (estaVazia()) {
-            throw new NoSuchElementException("Lista Vazia!");
+            throw new UnderFlowException("Lista Vazia!");
         }
         if (posicao < 0 || posicao >= quantidade) {
             throw new IndexOutOfBoundsException("Índice fora dos Limites");
