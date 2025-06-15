@@ -1,3 +1,5 @@
+package models;
+
 import exception.OverFlowException;
 
 import java.util.NoSuchElementException;

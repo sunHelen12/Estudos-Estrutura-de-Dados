@@ -1,3 +1,5 @@
+package models;
+
 /**
  * Interface que define as operações básicas para uma fila dinâmica com inserção e remoção
  * tanto no início quanto no fim da estrutura.
