@@ -46,7 +46,7 @@ public class ListaDinamica <T> implements Listavel <T> {
 
         NodoDuplo<T> ponteiroAux = ponteiroInicio;
 
-        for (int i = 0; i <= posicao; i++){
+        for (int i = 0; i < posicao; i++){
             ponteiroAux = ponteiroAux.getProximo();
         }
 
@@ -71,7 +71,7 @@ public class ListaDinamica <T> implements Listavel <T> {
 
         NodoDuplo<T> ponteiroAux = ponteiroInicio;
 
-        for (int i = 0; i <= posicao; i++){
+        for (int i = 0; i < posicao; i++){
             ponteiroAux = ponteiroAux.getProximo();
         }
         return ponteiroAux.getDado();
@@ -105,7 +105,7 @@ public class ListaDinamica <T> implements Listavel <T> {
 
         NodoDuplo<T> ponteiroAux = ponteiroInicio;
 
-        for (int i = 0; i <= posicao; i++){
+        for (int i = 0; i < posicao; i++){
             ponteiroAux = ponteiroAux.getProximo();
         }
         ponteiroAux.setDado(novoDado);
@@ -123,7 +123,7 @@ public class ListaDinamica <T> implements Listavel <T> {
 
         NodoDuplo<T> ponteiroAux = ponteiroInicio;
 
-        for (int i = 0; i <= posicao; i++){
+        for (int i = 0; i < posicao; i++){
             ponteiroAux = ponteiroAux.getProximo();
         }
 
