@@ -1,3 +1,5 @@
+package models;
+
 import exception.OverFlowException;
 
 import java.util.NoSuchElementException;
@@ -11,7 +13,7 @@ import java.util.NoSuchElementException;
  *
  * @param <T> Tipo dos dados armazenados na fila.
  */
-public class FilaDinamica <T> implements Enfileiravel <T> {
+public class FilaDinamica <T> implements Enfileiravel<T> {
     /** Ponteiro para o Início da fila */
     private NodoDuplo<T> ponteiroInicio;
     /** Ponteiro para o fim da fila */

@@ -1,4 +1,6 @@
- /**
+package models;
+
+/**
   * Classe que representa um nó duplo utilizado em estruturas de dados dinâmicas,
   * como listas duplamente encadeadas ou pilhas dinâmicas.
   * Cada nó armazena um dado genérico e referências para o nó anterior e o próximo.
