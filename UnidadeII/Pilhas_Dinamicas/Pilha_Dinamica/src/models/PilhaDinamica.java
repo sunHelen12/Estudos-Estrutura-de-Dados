@@ -1,3 +1,5 @@
+package models;
+
 import exception.OverFlowException;
 
 import java.util.NoSuchElementException;
@@ -75,17 +77,19 @@ public class PilhaDinamica<T> implements Empilhavel<T> {
      * @return Elemento removido do topo.
      * @throws NoSuchElementException se a pilha estiver vazia.
      */
-    @Override
-    public T desempilhar() {
-        if (estaVazia()) {
-            throw new NoSuchElementException("Pilha Vazia!");
-        }
-        T retorno = ponteiroTopo.getDado();
-        ponteiroTopo = ponteiroTopo.getAnterior();
-        ponteiroTopo.setProximo(null);
-        quantidade--;
-        return retorno;
-    }
+   @Override
+   public T desempilhar() {
+       if (estaVazia()) {
+           throw new NoSuchElementException("Pilha Vazia!");
+       }
+       T retorno = ponteiroTopo.getDado();
+       ponteiroTopo = ponteiroTopo.getAnterior();
+       if (ponteiroTopo != null) {
+           ponteiroTopo.setProximo(null);
+       }
+       quantidade--;
+       return retorno;
+   }
 
     /**
      * Retorna o elemento do topo da pilha sem removê-lo.
