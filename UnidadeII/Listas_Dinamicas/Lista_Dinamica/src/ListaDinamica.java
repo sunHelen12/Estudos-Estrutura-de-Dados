@@ -97,7 +97,7 @@ public class ListaDinamica <T> implements Listavel <T> {
     @Override
     public void atualizar(int posicao, T novoDado) {
         if(estaVazia()){
-
+            throw new NoSuchElementException("Lista Vazia!");
         }
         if (posicao < 0 || posicao >= quantidade){
             throw new IndexOutOfBoundsException("Índice fora dos Limites");
