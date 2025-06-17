@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Filas_Dinamicas.iml" filepath="$PROJECT_DIR$/Filas_Dinamicas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ArvoreBinaria.iml" filepath="$PROJECT_DIR$/ArvoreBinaria.iml" />
     </modules>
   </component>
 </project>
