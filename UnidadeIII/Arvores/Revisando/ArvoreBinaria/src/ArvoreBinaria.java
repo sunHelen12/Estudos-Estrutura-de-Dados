@@ -1,4 +1,4 @@
-public class ArvoreBinaria <T>{
+public class ArvoreBinaria <T extends Comparable> {
 
     private Elemento<T> raiz;
 
@@ -14,8 +14,27 @@ public class ArvoreBinaria <T>{
             this.raiz = novoElemento;
         }else{
             //Se a árvore não estiver nula
+            Elemento<T> atual = this.raiz;
+            while (true){
+                if (novoElemento.getValor().compareTo(atual.getValor()) == -1){
+                    if (atual.getEsquerda() != null){
+                        atual = atual.getEsquerda();
+                    } else{
+                        atual.setEsquerda(novoElemento);
+                        break;
+                    }
+                }else{
+                    if (atual.getDireita() != null){
+                        atual = atual.getDireita();
+                    }else{
+                        atual.setDireita(novoElemento);
+                        break;
+                    }
+                }
+            }
         }
 
     }
+
 
 }

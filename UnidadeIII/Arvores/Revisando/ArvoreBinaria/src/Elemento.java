@@ -5,7 +5,7 @@ public class Elemento<T> {
     private Elemento<T> direita;
 
     public Elemento(T novoValor){
-        this.valor = valor;
+        this.valor = novoValor;
     }
 
     public T getValor() {
